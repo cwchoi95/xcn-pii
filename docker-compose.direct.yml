@@ -1,0 +1,4 @@
+services:
+  api-grpc:
+    ports:
+      - "50051:50051"

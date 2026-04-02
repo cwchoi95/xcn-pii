@@ -1,0 +1,180 @@
+﻿{
+  "items": [
+    {
+      "id": "mn_real_1",
+      "type": "MN",
+      "match": "010-1234-5678",
+      "label": 1,
+      "text": "[怨좉컼 臾몄쓽] ?곕씫泥? 010-1234-5678 濡??곕씫 諛붾엻?덈떎."
+    },
+    {
+      "id": "mn_real_2",
+      "type": "MN",
+      "match": "02-345-6789",
+      "label": 1,
+      "text": "??쒕쾲?몃뒗 02-345-6789 ?낅땲??"
+    },
+    {
+      "id": "mn_real_3",
+      "type": "MN",
+      "match": "031 987 6543",
+      "label": 1,
+      "text": "吏???곕씫泥?031 987 6543 ?쇰줈 臾몄쓽?섏꽭??"
+    },
+    {
+      "id": "mn_sample_1",
+      "type": "MN",
+      "match": "010-1234-5678",
+      "label": 0,
+      "text": "[?덉떆] ?꾪솕踰덊샇 ?덉떆: 010-1234-5678 (?섑뵆)"
+    },
+    {
+      "id": "mn_sample_2",
+      "type": "MN",
+      "match": "02-345-6789",
+      "label": 0,
+      "text": "?뚯뒪?몄슜 ?곕씫泥? 02-345-6789"
+    },
+    {
+      "id": "EML_real_1",
+      "type": "EML",
+      "match": "user.name_01@sub.example.com",
+      "label": 1,
+      "text": "?대떦???대찓?? user.name_01@sub.example.com 濡?臾몄쓽?댁＜?몄슂."
+    },
+    {
+      "id": "EML_real_2",
+      "type": "EML",
+      "match": "billing@company.com",
+      "label": 1,
+      "text": "寃곗젣 愿??臾몄쓽??billing@company.com ?쇰줈 蹂대궡二쇱꽭??"
+    },
+    {
+      "id": "EML_sample_1",
+      "type": "EML",
+      "match": "ADMIN@EXAMPLE.ORG",
+      "label": 0,
+      "text": "?뚯뒪???대찓???덉떆: ADMIN@EXAMPLE.ORG"
+    },
+    {
+      "id": "EML_sample_2",
+      "type": "EML",
+      "match": "test.user@example.com",
+      "label": 0,
+      "text": "?섑뵆 怨꾩젙: test.user@example.com (?덉떆)"
+    },
+    {
+      "id": "sn_real_1",
+      "type": "SN_INVALID",
+      "match": "900101-1234567",
+      "label": 1,
+      "text": "蹂몄씤 ?뺤씤 二쇰??깅줉踰덊샇: 900101-1234567"
+    },
+    {
+      "id": "sn_real_2",
+      "type": "SN_INVALID",
+      "match": "960229-2234567",
+      "label": 1,
+      "text": "?좎썝 ?뺤씤??二쇰?踰덊샇 960229-2234567"
+    },
+    {
+      "id": "sn_sample_1",
+      "type": "SN_INVALID",
+      "match": "801231-2345678",
+      "label": 0,
+      "text": "?섑뵆 二쇰?踰덊샇: 801231-2345678 (?덉떆)"
+    },
+    {
+      "id": "sn_sample_2",
+      "type": "SN_INVALID",
+      "match": "001231-4567890",
+      "label": 0,
+      "text": "?뚯뒪??二쇰??깅줉踰덊샇 001231-4567890"
+    },
+    {
+      "id": "bn_real_1",
+      "type": "BN",
+      "match": "112233333344",
+      "label": 1,
+      "text": "怨꾩쥖踰덊샇: 112233333344 濡??↔툑 遺?곷뱶由쎈땲??"
+    },
+    {
+      "id": "bn_real_2",
+      "type": "BN",
+      "match": "123-456-789012",
+      "label": 1,
+      "text": "?낃툑 怨꾩쥖 123-456-789012 濡?泥섎━ 諛붾엻?덈떎."
+    },
+    {
+      "id": "bn_sample_1",
+      "type": "BN",
+      "match": "11-22-333333",
+      "label": 0,
+      "text": "怨꾩쥖踰덊샇 ?덉떆: 11-22-333333 (?뚯뒪?몄슜)"
+    },
+    {
+      "id": "bn_sample_2",
+      "type": "BN",
+      "match": "12 3456 7890",
+      "label": 0,
+      "text": "?섑뵆 怨꾩쥖: 12 3456 7890"
+    },
+    {
+      "id": "pn_real_1",
+      "type": "PN",
+      "match": "M12345678",
+      "label": 1,
+      "text": "?ш텒踰덊샇: M12345678"
+    },
+    {
+      "id": "pn_real_2",
+      "type": "PN",
+      "match": "AB1234567",
+      "label": 1,
+      "text": "?ш텒 踰덊샇 AB1234567 ?쒖텧 ?꾨즺"
+    },
+    {
+      "id": "pn_sample_1",
+      "type": "PN",
+      "match": "S98765432",
+      "label": 0,
+      "text": "?ш텒踰덊샇 ?덉떆: S98765432 (?섑뵆)"
+    },
+    {
+      "id": "pn_sample_2",
+      "type": "PN",
+      "match": "C00000000",
+      "label": 0,
+      "text": "?뚯뒪???ш텒踰덊샇 C00000000"
+    },
+    {
+      "id": "an_real_1",
+      "type": "AN",
+      "match": "?쒖슱?밸퀎??媛뺣궓援??뚰뿤?濡?123-4",
+      "label": 1,
+      "text": "二쇱냼: ?쒖슱?밸퀎??媛뺣궓援??뚰뿤?濡?123-4"
+    },
+    {
+      "id": "an_real_2",
+      "type": "AN",
+      "match": "遺?곌킅??떆 ?댁슫?援??щ쭪?닿만 77",
+      "label": 1,
+      "text": "諛곗넚吏 遺?곌킅??떆 ?댁슫?援??щ쭪?닿만 77 濡?遺?곷뱶由쎈땲??"
+    },
+    {
+      "id": "an_sample_1",
+      "type": "AN",
+      "match": "寃쎄린???깅궓??遺꾨떦援??뺤옄??12-3",
+      "label": 0,
+      "text": "二쇱냼 ?덉떆: 寃쎄린???깅궓??遺꾨떦援??뺤옄??12-3"
+    },
+    {
+      "id": "an_sample_2",
+      "type": "AN",
+      "match": "?쒖슱??媛뺣궓援???궪??1-1",
+      "label": 0,
+      "text": "?섑뵆 二쇱냼 ?쒖슱??媛뺣궓援???궪??1-1"
+    }
+  ]
+}
+

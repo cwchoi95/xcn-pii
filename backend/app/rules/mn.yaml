@@ -1,0 +1,49 @@
+# MN detector configuration (phone number).
+
+# Enable/disable this detector.
+enabled: true
+
+# Candidate regex list for KR phone-like numbers.
+patterns:
+  - name: phone_country_code_ascii
+    expr: '\+(?:[1-9]\d{0,2})(?:[-. ]\d{1,4}){2,4}'
+    verify_regex: '(?<!\d)\+(?:[1-9]\d{0,2})(?:[-.\s]\d{1,4}){2,4}(?!\d)'
+    regex: '(?<!\d)\+(?:[1-9]\d{0,2})(?:[-.\s]\d{1,4}){2,4}(?!\d)'
+    flags:
+      utf8: false
+      ucp: false
+  - name: phone_country_code
+    # Strict international format with separators, e.g.:
+    # +82-10-4353-1225 / +44 20 7946 0958 / +81-3-1234-5678 / +82.10.4353.1225
+    # Keep this narrow to minimize false positives and regex cost.
+    expr: '\+(?:[1-9]\d{0,2})(?:[-.\s]\d{1,4}){2,4}'
+    verify_regex: '(?<!\d)\+(?:[1-9]\d{0,2})(?:[-.\s]\d{1,4}){2,4}(?!\d)'
+    regex: '(?<!\d)\+(?:[1-9]\d{0,2})(?:[-.\s]\d{1,4}){2,4}(?!\d)'
+  - name: phone_basic_ascii
+    expr: '(?:0(?:(?:1(?:0|1|6|7|8|9))|2|(?:[3-9][0-9])))[-. ]?\d{3,4}[-. ]?\d{4}'
+    verify_regex: '(?<!\d)(?:0(?:(?:1(?:0|1|6|7|8|9))|2|(?:[3-9][0-9])))[-.\s]?\d{3,4}[-.\s]?\d{4}(?!\d)'
+    regex: '(?<!\d)(?:0(?:(?:1(?:0|1|6|7|8|9))|2|(?:[3-9][0-9])))[-.\s]?\d{3,4}[-.\s]?\d{4}(?!\d)'
+    flags:
+      utf8: false
+      ucp: false
+  - name: phone_basic
+    # 010-1234-5678 / 010.1234.5678 / 공일공-1234-오육칠팔 / 공일공-일이삼사-오육칠팔
+    # Supports Arabic digits mixed with Korean digit words for phone-like input.
+    # Restrict prefix to realistic KR phone prefixes to avoid noise.
+    expr: '(?:(?:0|공|영)(?:(?:1|일)(?:(?:0|공|영)|(?:1|일)|(?:6|육|륙)|(?:7|칠)|(?:8|팔)|(?:9|구))|(?:2|이)|(?:(?:3|삼)|(?:4|사)|(?:5|오)|(?:6|육|륙)|(?:7|칠)|(?:8|팔)|(?:9|구))(?:[0-9]|공|영|일|이|삼|사|오|육|륙|칠|팔|구)))[-.\s]?(?:[0-9]|공|영|일|이|삼|사|오|육|륙|칠|팔|구){3,4}[-.\s]?(?:[0-9]|공|영|일|이|삼|사|오|육|륙|칠|팔|구){4}'
+    verify_regex: '(?<![0-9공영일이삼사오육륙칠팔구])(?:(?:0|공|영)(?:(?:1|일)(?:(?:0|공|영)|(?:1|일)|(?:6|육|륙)|(?:7|칠)|(?:8|팔)|(?:9|구))|(?:2|이)|(?:(?:3|삼)|(?:4|사)|(?:5|오)|(?:6|육|륙)|(?:7|칠)|(?:8|팔)|(?:9|구))(?:[0-9]|공|영|일|이|삼|사|오|육|륙|칠|팔|구)))[-.\s]?(?:[0-9]|공|영|일|이|삼|사|오|육|륙|칠|팔|구){3,4}[-.\s]?(?:[0-9]|공|영|일|이|삼|사|오|육|륙|칠|팔|구){4}(?![0-9공영일이삼사오육륙칠팔구])'
+    regex: '(?<![0-9공영일이삼사오육륙칠팔구])(?:(?:0|공|영)(?:(?:1|일)(?:(?:0|공|영)|(?:1|일)|(?:6|육|륙)|(?:7|칠)|(?:8|팔)|(?:9|구))|(?:2|이)|(?:(?:3|삼)|(?:4|사)|(?:5|오)|(?:6|육|륙)|(?:7|칠)|(?:8|팔)|(?:9|구))(?:[0-9]|공|영|일|이|삼|사|오|육|륙|칠|팔|구)))[-.\s]?(?:[0-9]|공|영|일|이|삼|사|오|육|륙|칠|팔|구){3,4}[-.\s]?(?:[0-9]|공|영|일|이|삼|사|오|육|륙|칠|팔|구){4}(?![0-9공영일이삼사오육륙칠팔구])'
+
+# Maximum captured match length used by the cursor scanner.
+max_match_len: 32
+
+# Post-filter safeguards to reduce false positives.
+postfilter:
+  enabled: true
+  boundary_digit_reject: true
+  intl_digits_length:
+    min: 8
+    max: 15
+  reject_overlap_with:
+    - SN
+    - SN_INVALID

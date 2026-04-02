@@ -1,0 +1,27 @@
+# IP detector configuration (IPv4/IPv6).
+
+# Enable/disable this detector.
+enabled: true
+
+# Candidate regex list for IP-like tokens.
+patterns:
+  - name: ipv4
+    # Fast candidate for hyperscan, strict range check is done in verify/regex.
+    expr: '(?:\d{1,3}\.){3}\d{1,3}'
+    verify_regex: '(?<![\d.])(?:(?:25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)\.){3}(?:25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)(?![\d.])'
+    regex: '(?<![\d.])(?:(?:25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)\.){3}(?:25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)(?![\d.])'
+    flags:
+      utf8: false
+      ucp: false
+
+  - name: ipv6
+    # Broad IPv6 candidate; strict shape is guarded by verify/regex boundary.
+    expr: '(?:[A-Fa-f0-9]+:)+[A-Fa-f0-9]+'
+    verify_regex: '(?<![A-Fa-f0-9:])(?:[A-Fa-f0-9]{1,4}:){2,7}[A-Fa-f0-9]{1,4}(?![A-Fa-f0-9:])'
+    regex: '(?<![A-Fa-f0-9:])(?:[A-Fa-f0-9]{1,4}:){2,7}[A-Fa-f0-9]{1,4}(?![A-Fa-f0-9:])'
+    flags:
+      utf8: false
+      ucp: false
+
+# Maximum captured match length used by the cursor scanner.
+max_match_len: 64

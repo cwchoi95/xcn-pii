@@ -1,0 +1,22 @@
+# SSN detector configuration (US social security number).
+
+# Enable/disable this detector.
+enabled: true
+
+# Candidate regex list for SSN formats.
+patterns:
+  - name: us_ssn_hyphen
+    # Generic expression used by some compilation paths.
+    expr: '\d{3}-\d{2}-\d{4}'
+    # Final bounded verification regex.
+    verify_regex: '(?<!\d)(?!(?:000|666|9\d\d)-\d{2}-\d{4})(?:\d{3})-(?!00)\d{2}-(?!0000)\d{4}(?!\d)'
+    regex: '(?<!\d)(?!(?:000|666|9\d\d)-\d{2}-\d{4})(?:\d{3})-(?!00)\d{2}-(?!0000)\d{4}(?!\d)'
+  - name: us_ssn_compact
+    # Generic compact expression.
+    expr: '\d{9}'
+    # Final bounded verification regex.
+    verify_regex: '(?<!\d)(?!(?:000|666|9\d\d)\d{6})(?:\d{3})(?!00)\d{2}(?!0000)\d{4}(?!\d)'
+    regex: '(?<!\d)(?!(?:000|666|9\d\d)\d{6})(?:\d{3})(?!00)\d{2}(?!0000)\d{4}(?!\d)'
+
+# Maximum captured match length used by the cursor scanner.
+max_match_len: 16

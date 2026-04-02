@@ -1,0 +1,39 @@
+# BN detector configuration (bank-account-like number).
+
+# Enable/disable this detector.
+enabled: true
+
+# External regex dictionary file for bank-specific patterns.
+bank_pattern_file: bn_regex.json
+
+# Enable/disable bank_pattern_file usage.
+bank_pattern_enabled: false
+
+# Weight applied when bank_pattern_file matches.
+bank_pattern_weight: 0.25
+
+# Candidate regex list for account-like numeric tokens.
+patterns:
+  - name: account_candidate
+    regex: '(?<!\d)\d{2,4}[-\s]?\d{2,6}[-\s]?\d{4,7}(?!\d)'
+  - name: account_6_2_6
+    regex: '(?<!\d)\d{6}[-\s]?\d{2}[-\s]?\d{6}(?!\d)'
+
+# Maximum captured match length used by the cursor scanner.
+max_match_len: 64
+
+# Post-filter safeguards to reduce overlap/noise.
+postfilter:
+  enabled: true
+  digits_length:
+    min: 10
+    max: 14
+  reject_if_phone_like: true
+  boundary_digit_reject: true
+  reject_overlap_with:
+    - SN
+    - SN_INVALID
+    - MN
+    - DN
+    - PN
+    - EML

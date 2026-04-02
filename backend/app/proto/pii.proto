@@ -1,0 +1,112 @@
+syntax = "proto3";
+
+package xcn.pii.v1;
+
+service PiiDetector {
+  rpc Detect(DetectRequest) returns (DetectResponse);
+  rpc Health(HealthRequest) returns (HealthResponse);
+}
+
+message DetectRequest {
+  string text = 1;
+  int32 max_results_per_type = 2;
+  string ruleset = 3;
+}
+
+message MatchItem {
+  int32 start = 1;
+  int32 end = 2;
+  string match_string = 3;
+  bool is_valid = 4;
+  double context_score = 5;
+  double context_score_norm = 6;
+  double context_hybrid_score = 7;
+  string context_method = 8;
+  string context_accept_by = 9;
+  bool context_pass = 10;
+  string detected_by = 11;
+}
+
+message PiiData {
+  int32 sn_cnt = 1;
+  repeated MatchItem sn = 2;
+
+  int32 sn_invalid_cnt = 3;
+  repeated MatchItem sn_invalid = 4;
+
+  int32 ssn_cnt = 5;
+  repeated MatchItem ssn = 6;
+
+  int32 dn_cnt = 7;
+  repeated MatchItem dn = 8;
+
+  int32 an_cnt = 9;
+  repeated MatchItem an = 10;
+
+  int32 pn_cnt = 11;
+  repeated MatchItem pn = 12;
+
+  int32 mn_cnt = 13;
+  repeated MatchItem mn = 14;
+
+  int32 bn_cnt = 15;
+  repeated MatchItem bn = 16;
+
+  int32 eml_cnt = 17;
+  repeated MatchItem eml = 18;
+
+  int32 ip_cnt = 19;
+  repeated MatchItem ip = 20;
+
+  int32 sn_ctx_rejected_cnt = 21;
+  repeated MatchItem sn_ctx_rejected = 22;
+
+  int32 ssn_ctx_rejected_cnt = 23;
+  repeated MatchItem ssn_ctx_rejected = 24;
+
+  int32 sn_invalid_ctx_rejected_cnt = 25;
+  repeated MatchItem sn_invalid_ctx_rejected = 26;
+
+  int32 dn_ctx_rejected_cnt = 27;
+  repeated MatchItem dn_ctx_rejected = 28;
+
+  int32 pn_ctx_rejected_cnt = 29;
+  repeated MatchItem pn_ctx_rejected = 30;
+
+  int32 mn_ctx_rejected_cnt = 31;
+  repeated MatchItem mn_ctx_rejected = 32;
+
+  int32 bn_ctx_rejected_cnt = 33;
+  repeated MatchItem bn_ctx_rejected = 34;
+
+  int32 an_ctx_rejected_cnt = 35;
+  repeated MatchItem an_ctx_rejected = 36;
+
+  int32 eml_ctx_rejected_cnt = 37;
+  repeated MatchItem eml_ctx_rejected = 38;
+
+  int32 ip_ctx_rejected_cnt = 39;
+  repeated MatchItem ip_ctx_rejected = 40;
+}
+
+message PiiMeta {
+  string ruleset_name = 1;
+  string ruleset_version = 2;
+  string ruleset_updated_at = 3;
+}
+
+message DetectResponse {
+  bool success = 1;
+  int32 status = 2;
+  string message = 3;
+  PiiData data = 4;
+  PiiMeta meta = 5;
+}
+
+message HealthRequest {}
+
+message HealthResponse {
+  bool ok = 1;
+  string service = 2;
+  string version = 3;
+}

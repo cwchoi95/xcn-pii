@@ -1,0 +1,33 @@
+# BN strict detector configuration.
+
+# Enable/disable this detector.
+enabled: true
+
+# Enable/disable bank_pattern_file usage (if configured via context/per-type).
+bank_pattern_enabled: false
+
+# Strict candidate regex requiring separators.
+patterns:
+  - name: account_candidate_with_sep
+    regex: '(?<!\d)\d{2,4}(?:[-\s]+)\d{2,6}(?:[-\s]+)\d{4,7}(?!\d)'
+  - name: account_6_2_6_with_sep
+    regex: '(?<!\d)\d{6}(?:[-\s]+)\d{2}(?:[-\s]+)\d{6}(?!\d)'
+
+# Maximum captured match length used by the cursor scanner.
+max_match_len: 64
+
+# Post-filter safeguards (strict profile).
+postfilter:
+  enabled: true
+  digits_length:
+    min: 11
+    max: 14
+  reject_if_phone_like: true
+  boundary_digit_reject: true
+  reject_overlap_with:
+    - SN
+    - SN_INVALID
+    - MN
+    - DN
+    - PN
+    - EML

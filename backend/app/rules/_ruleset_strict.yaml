@@ -1,0 +1,31 @@
+# Pipeline profile name.
+ruleset_name: strict
+# Detection and post-processing order.
+steps:
+  - SSN
+  - sn
+  - dn
+  - pn
+  - an
+  - EML
+  - ip
+  - mn
+  - bn
+  - post_mn
+  - post_bn
+# Rule document file mapping used by the engine loader.
+rule_files:
+  sn: sn.yaml
+  SSN: ssn.yaml
+  dn: dn.yaml
+  pn: pn.yaml
+  mn: mn.yaml
+  bn: bn_strict.yaml
+  an: an.yaml
+  EML: eml.yaml
+  ip: ip.yaml
+  context: context.yaml
+# Common engine defaults.
+defaults:
+  max_results_per_type: 500
+  max_match_len_default: 240

@@ -1,0 +1,16 @@
+﻿scope,metric,threshold,precision,recall,f1
+overall,context_score_norm,0.03,0.6470588235294118,1.0,0.7857142857142858
+overall,context_hybrid_score,0.38,0.6111111111111112,1.0,0.7586206896551725
+AN,context_score_norm,0.01,1.0,1.0,1.0
+BN,context_score_norm,0.09,1.0,1.0,1.0
+MN,context_score_norm,-0.01,0.6666666666666666,1.0,0.8
+PN,context_score_norm,0.06,0.6666666666666666,1.0,0.8
+SN_INVALID,context_score_norm,0.11,1.0,1.0,1.0
+EML,context_score_norm,0.03,1.0,1.0,1.0
+AN,context_hybrid_score,0.36,1.0,1.0,1.0
+BN,context_hybrid_score,0.44,1.0,1.0,1.0
+MN,context_hybrid_score,0.49,0.6666666666666666,1.0,0.8
+PN,context_hybrid_score,0.56,0.6666666666666666,1.0,0.8
+SN_INVALID,context_hybrid_score,0.61,1.0,1.0,1.0
+EML,context_hybrid_score,0.38,1.0,1.0,1.0
+

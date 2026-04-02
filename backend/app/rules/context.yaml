@@ -1,0 +1,218 @@
+﻿# Contextual post-filter global configuration.
+context:
+  # Master on/off for contextual filtering.
+  enabled: true
+  # Filtering mode: embed / keyword.
+  method: embed
+  # Embedding model name for semantic similarity.
+  model_name: sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2
+  # Global fallback threshold for normalized context score.
+  sim_threshold: 0.55
+  # Number of surrounding sentences used as context window.
+  window_sentences: 2
+  # PII keys that should pass through context filtering.
+  target_keys:
+    - SN
+    - SSN
+    - DN
+    - PN
+    - BN
+  # Hybrid score options combined with semantic score.
+  hybrid:
+    enabled: true
+    accept_threshold: 0.4
+    label_window: 50
+    label_weight: 0.4
+    # Tabular header hinting (Excel/TSV copy): search same-column header above span.
+    table_header_enabled: true
+    table_header_line_fallback: true
+    table_header_weight: 0.4
+    table_header_max_lines: 64
+    table_header_max_distance_chars: 8000
+    # Boost when same type appears repeatedly even without strong labels.
+    repeat_boost_enabled: true
+    repeat_boost_min_count: 2
+    repeat_boost_unique_min: 1
+    repeat_boost_weight: 0.35
+    repeat_boost_require_structure: true
+    repeat_boost_structure_min_ratio: 0.6
+    repeat_boost_structure_min_count: 2
+    repeat_boost_structure_min_tokens: 2
+    repeat_boost_require_consecutive: true
+    repeat_boost_consecutive_min_count: 2
+    digit_min_ratio: 0.6
+    digit_weight: 0.2
+  # Per-type overrides for thresholds/phrases/hybrid behavior.
+  per_type:
+    SN:
+      sim_threshold: 0.60
+      force_pass_phrases:
+        - "주민등록표"
+        - "등본"
+        - "초본"
+        - "가족관계증명서"
+        - "재직증명서"
+        - "기본증명서"
+      force_pass_scope: snippet
+      indicator_phrases:
+        - "주민등록번호"
+        - "주민등록"
+        - "주민번호"
+        - "주번"
+        - "sn"
+      non_pii_phrases:
+        - "예시"
+        - "샘플"
+        - "테스트"
+      hybrid:
+        label_patterns:
+          - "(?i)\\bSN\\b|주민\\s*등록\\s*(?:증\\s*)?번호|주민\\s*등록|주민\\s*번호|주번"
+    SSN:
+      sim_threshold: 0.20
+      indicator_phrases:
+        - "social security"
+        - "social security number"
+        - "ssn"
+      non_pii_phrases:
+        - "sample ssn"
+        - "test ssn"
+      hybrid:
+        label_patterns:
+          - "(?i)social\\s+security(?:\\s+number)?|\\bSSN\\b"
+    DN:
+      sim_threshold: 0.58
+      indicator_phrases:
+        - "운전면허"
+        - "면허번호"
+        - "driver license"
+        - "drivers license"
+        - "dl"
+        - "dn"
+      hybrid:
+        label_patterns:
+          - "(?i)운전면허|면허번호|driver'?s?\\s+license|\\bDL\\b|\\bDN\\b"
+    PN:
+      sim_threshold: 0.05
+      indicator_phrases:
+        - "여권번호"
+        - "여권"
+        - "passport"
+        - "pn"
+      hybrid:
+        enabled: true
+        accept_threshold: 0.30
+        label_window: 80
+        label_weight: 0.45
+        digit_weight: 0.1
+        label_patterns:
+          - "(?i)여권번호|여권|passport|\\bPN\\b"
+    MN:
+      sim_threshold: 0.05
+      window_sentences: 1
+      embed_max_chars: 192
+      indicator_phrases:
+        - "전화번호"
+        - "휴대전화"
+        - "문의전화"
+        - "연락처"
+        - "모바일"
+        - "전화"
+        - "tel"
+        - "mobile"
+        - "mn"
+      hybrid:
+        enabled: true
+        accept_threshold: 0.32
+        label_window: 48
+        label_weight: 0.45
+        digit_weight: 0.1
+        label_patterns:
+          - "(?i)전화번호|휴대전화|문의전화|연락처|모바일|전화|tel|phone|fax|\\bMN\\b"
+    BN:
+      sim_threshold: 0.09
+      indicator_phrases:
+        - "계좌"
+        - "계좌번호"
+        - "카드번호"
+        - "bank"
+        - "bn"
+      hybrid:
+        label_patterns:
+          - "(?i)계좌|계좌번호|카드번호|bank|\\bBN\\b"
+    AN:
+      sim_threshold: 0.05
+      window_sentences: 1
+      embed_max_chars: 192
+      split_newlines: true
+      force_pass_phrases:
+        - "주민등록표"
+        - "등본"
+        - "초본"
+        - "가족관계증명서"
+        - "재직증명서"
+        - "기본증명서"
+      force_pass_scope: snippet
+      indicator_phrases:
+        - "주소"
+        - "거주"
+        - "이전주소"
+        - "거주지"
+        - "출생장소"
+        - "배송지"
+        - "address"
+      non_pii_phrases:
+        - "샘플 주소"
+        - "예시 주소"
+      hybrid:
+        enabled: true
+        accept_threshold: 0.35
+        label_window: 32
+        label_weight: 0.45
+        digit_weight: 0.0
+        label_patterns:
+          - "(?i)주소|거주|이전주소|거주지|배송지|address|\\bAN\\b"
+    EML:
+      sim_threshold: 0.05
+      window_sentences: 1
+      embed_max_chars: 160
+      repeat_same_match_force_pass_min_count: 2
+      indicator_phrases:
+        - "이메일"
+        - "메일"
+        - "email"
+        - "e-mail"
+        - "eml"
+        - "o메일"
+      non_pii_phrases:
+        - "sample email"
+        - "test email"
+      hybrid:
+        accept_threshold: 0.30
+        label_window: 48
+        label_weight: 0.45
+        digit_weight: 0.0
+        label_patterns:
+          - "(?i)이메일|메일|email|e-mail|o메일|\\bEML\\b"
+    IP:
+      sim_threshold: 0.08
+      window_sentences: 1
+      embed_max_chars: 160
+      indicator_phrases:
+        - "ip"
+        - "ip주소"
+        - "아이피"
+        - "서버"
+        - "host"
+        - "address"
+      non_pii_phrases:
+        - "예시 ip"
+        - "sample ip"
+        - "test ip"
+      hybrid:
+        enabled: true
+        accept_threshold: 0.32
+        label_window: 56
+        label_weight: 0.5
+        digit_weight: 0.1
+        label_patterns:
+          - "(?i)\\bIP\\b|ip\\s*주소|아이피|서버|host|address"

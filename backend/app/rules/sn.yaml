@@ -1,0 +1,44 @@
+# SN detector configuration (Korean resident registration number).
+
+# Enable/disable this detector.
+enabled: true
+
+# Candidate regex list used by the scanning stage.
+patterns:
+  - name: rrn_hyphen_ascii
+    expr: '\d{6}-\d{7}'
+    verify_regex: '(?<!\d)\d{6}-\d{7}(?!\d)'
+    regex: '(?<!\d)\d{6}-\d{7}(?!\d)'
+    flags:
+      utf8: false
+      ucp: false
+  - name: rrn_compact_ascii
+    expr: '\d{13}'
+    verify_regex: '(?<!\d)\d{13}(?!\d)'
+    regex: '(?<!\d)\d{13}(?!\d)'
+    flags:
+      utf8: false
+      ucp: false
+  - name: rrn_hyphen
+    # Canonical format: YYMMDD-XXXXXXX.
+    # Supports Arabic digits mixed with Korean digit words.
+    # HS compile pattern (no lookbehind/lookahead).
+    expr: '(?:[0-9]|공|영|일|이|삼|사|오|육|륙|칠|팔|구){6}-(?:[0-9]|공|영|일|이|삼|사|오|육|륙|칠|팔|구){7}'
+    # Final bounded verification regex.
+    verify_regex: '(?<![0-9공영일이삼사오육륙칠팔구])(?:[0-9]|공|영|일|이|삼|사|오|육|륙|칠|팔|구){6}-(?:[0-9]|공|영|일|이|삼|사|오|육|륙|칠|팔|구){7}(?![0-9공영일이삼사오육륙칠팔구])'
+    regex: '(?<![0-9공영일이삼사오육륙칠팔구])(?:[0-9]|공|영|일|이|삼|사|오|육|륙|칠|팔|구){6}-(?:[0-9]|공|영|일|이|삼|사|오|육|륙|칠|팔|구){7}(?![0-9공영일이삼사오육륙칠팔구])'
+  - name: rrn_compact
+    # Compact format: YYMMDDXXXXXXX.
+    # Supports Arabic digits mixed with Korean digit words.
+    # HS compile pattern (no lookbehind/lookahead).
+    expr: '(?:[0-9]|공|영|일|이|삼|사|오|육|륙|칠|팔|구){13}'
+    # Final bounded verification regex.
+    verify_regex: '(?<![0-9공영일이삼사오육륙칠팔구])(?:[0-9]|공|영|일|이|삼|사|오|육|륙|칠|팔|구){13}(?![0-9공영일이삼사오육륙칠팔구])'
+    regex: '(?<![0-9공영일이삼사오육륙칠팔구])(?:[0-9]|공|영|일|이|삼|사|오|육|륙|칠|팔|구){13}(?![0-9공영일이삼사오육륙칠팔구])'
+
+# Maximum captured match length used by the cursor scanner.
+max_match_len: 32
+
+# Checksum gate for final SN/SN_INVALID classification.
+checksum:
+  enabled: true

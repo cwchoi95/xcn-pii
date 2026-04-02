@@ -1,0 +1,15 @@
+# PN detector configuration (passport number).
+
+# Enable/disable this detector.
+enabled: true
+
+# Candidate regex list for passport-like tokens.
+patterns:
+  - name: passport_basic
+    # Typical form: 1-2 letters + 7-8 digits.
+    expr: '[A-Za-z]{1,2}\d{7,8}'
+    verify_regex: '(?<![A-Za-z0-9])[A-Za-z]{1,2}\d{7,8}(?![A-Za-z0-9])'
+    regex: '(?<![A-Za-z0-9])[A-Za-z]{1,2}\d{7,8}(?![A-Za-z0-9])'
+
+# Maximum captured match length used by the cursor scanner.
+max_match_len: 24

@@ -1,0 +1,774 @@
+{
+  "002": {
+    "institution": "산업은행",
+    "patterns": [
+      "^\\d{3}[-\\s]?\\d{8}$",
+      "^\\d{3}[-\\s]?\\d{8}[-\\s]?\\d{3}$",
+      "^\\d{8}$",
+      "^\\d{8}[-\\s]?\\d{2}$"
+    ],
+    "notes": "Structural regex only; does not validate checksum algorithm."
+  },
+  "003": {
+    "institution": "기업은행",
+    "patterns": [
+      "^\\d{11}$",
+      "^\\d{3}[-\\s]?\\d{2}[-\\s]?\\d{6}[-\\s]?\\d$",
+      "^\\d{3}[-\\s]?\\d{3}[-\\s]?\\d{4}$",
+      "^\\d{3}[-\\s]?\\d{4}$",
+      "^\\d{3}[-\\s]?\\d{6}[-\\s]?\\d{2}[-\\s]?\\d{2}[-\\s]?\\d$"
+    ],
+    "notes": "Structural regex only; does not validate checksum algorithm."
+  },
+  "004": {
+    "institution": "국민은행",
+    "patterns": [
+      "^\\d{3}[-\\s]?\\d{2}[-\\s]?\\d{4}[-\\s]?\\d{2}[-\\s]?\\d$",
+      "^\\d{4}[-\\s]?\\d{2}[-\\s]?\\d{5}[-\\s]?\\d$",
+      "^\\d{4}[-\\s]?\\d{2}[-\\s]?\\d{7}[-\\s]?\\d$"
+    ],
+    "notes": "Structural regex only; does not validate checksum algorithm."
+  },
+  "005": {
+    "institution": "하나은행(구.외환,하나)",
+    "patterns": [
+      "^\\d{3}[-\\s]?\\d{2}[-\\s]?\\d{5}[-\\s]?\\d$",
+      "^\\d{3}[-\\s]?\\d{6}[-\\s]?\\d{3}$",
+      "^\\d{3}[-\\s]?\\d{8}[-\\s]?\\d$",
+      "^\\d{8}$"
+    ],
+    "notes": "Structural regex only; does not validate checksum algorithm."
+  },
+  "006": {
+    "institution": "국민은행",
+    "patterns": [
+      "^\\d{3}[-\\s]?\\d{2}[-\\s]?\\d{4}[-\\s]?\\d{2}[-\\s]?\\d$",
+      "^\\d{4}[-\\s]?\\d{2}[-\\s]?\\d{5}[-\\s]?\\d$",
+      "^\\d{4}[-\\s]?\\d{2}[-\\s]?\\d{7}[-\\s]?\\d$"
+    ],
+    "notes": "Structural regex only; does not validate checksum algorithm."
+  },
+  "009": {
+    "institution": "수협은행/수협중앙회",
+    "patterns": [],
+    "notes": "Structural regex only; does not validate checksum algorithm."
+  },
+  "010": {
+    "institution": "농협은행",
+    "patterns": [
+      "^\\d{3}[-\\s]?\\d{4}[-\\s]?\\d{4}[-\\s]?\\d[-\\s]?\\d$",
+      "^\\d{3}[-\\s]?\\d{4}[-\\s]?\\d{4}[-\\s]?\\d{2}[-\\s]?\\d$",
+      "^\\d{6}[-\\s]?\\d{2}[-\\s]?\\d{5}[-\\s]?\\d$"
+    ],
+    "notes": "Structural regex only; does not validate checksum algorithm."
+  },
+  "011": {
+    "institution": "농협은행",
+    "patterns": [
+      "^\\d{3}[-\\s]?\\d{4}[-\\s]?\\d{4}[-\\s]?\\d[-\\s]?\\d$",
+      "^\\d{3}[-\\s]?\\d{4}[-\\s]?\\d{4}[-\\s]?\\d{2}[-\\s]?\\d$",
+      "^\\d{6}[-\\s]?\\d{2}[-\\s]?\\d{5}[-\\s]?\\d$"
+    ],
+    "notes": "Structural regex only; does not validate checksum algorithm."
+  },
+  "012": {
+    "institution": ", 농협중앙회",
+    "patterns": [
+      "^\\d{3}[-\\s]?\\d{4}[-\\s]?\\d{4}[-\\s]?\\d{2}[-\\s]?\\d$",
+      "^\\d{6}[-\\s]?\\d{2}[-\\s]?\\d{5}[-\\s]?\\d$"
+    ],
+    "notes": "Structural regex only; does not validate checksum algorithm."
+  },
+  "013": {
+    "institution": ", 농협중앙회",
+    "patterns": [
+      "^\\d{3}[-\\s]?\\d{4}[-\\s]?\\d{4}[-\\s]?\\d{2}[-\\s]?\\d$",
+      "^\\d{6}[-\\s]?\\d{2}[-\\s]?\\d{5}[-\\s]?\\d$"
+    ],
+    "notes": "Structural regex only; does not validate checksum algorithm."
+  },
+  "014": {
+    "institution": ", 농협중앙회",
+    "patterns": [
+      "^\\d{3}[-\\s]?\\d{4}[-\\s]?\\d{4}[-\\s]?\\d{2}[-\\s]?\\d$",
+      "^\\d{6}[-\\s]?\\d{2}[-\\s]?\\d{5}[-\\s]?\\d$"
+    ],
+    "notes": "Structural regex only; does not validate checksum algorithm."
+  },
+  "015": {
+    "institution": ", 농협중앙회",
+    "patterns": [
+      "^\\d{3}[-\\s]?\\d{4}[-\\s]?\\d{4}[-\\s]?\\d{2}[-\\s]?\\d$",
+      "^\\d{6}[-\\s]?\\d{2}[-\\s]?\\d{5}[-\\s]?\\d$"
+    ],
+    "notes": "Structural regex only; does not validate checksum algorithm."
+  },
+  "016": {
+    "institution": "농협은행",
+    "patterns": [
+      "^\\d{3}[-\\s]?\\d{4}[-\\s]?\\d{4}[-\\s]?\\d[-\\s]?\\d$",
+      "^\\d{3}[-\\s]?\\d{4}[-\\s]?\\d{4}[-\\s]?\\d{2}[-\\s]?\\d$",
+      "^\\d{6}[-\\s]?\\d{2}[-\\s]?\\d{5}[-\\s]?\\d$"
+    ],
+    "notes": "Structural regex only; does not validate checksum algorithm."
+  },
+  "017": {
+    "institution": ", 농협중앙회",
+    "patterns": [
+      "^\\d{3}[-\\s]?\\d{4}[-\\s]?\\d{4}[-\\s]?\\d{2}[-\\s]?\\d$",
+      "^\\d{6}[-\\s]?\\d{2}[-\\s]?\\d{5}[-\\s]?\\d$"
+    ],
+    "notes": "Structural regex only; does not validate checksum algorithm."
+  },
+  "018": {
+    "institution": "농협중앙회",
+    "patterns": [],
+    "notes": "Structural regex only; does not validate checksum algorithm."
+  },
+  "019": {
+    "institution": "국민은행",
+    "patterns": [
+      "^\\d{3}[-\\s]?\\d{2}[-\\s]?\\d{4}[-\\s]?\\d{2}[-\\s]?\\d$",
+      "^\\d{4}[-\\s]?\\d{2}[-\\s]?\\d{5}[-\\s]?\\d$",
+      "^\\d{4}[-\\s]?\\d{2}[-\\s]?\\d{7}[-\\s]?\\d$"
+    ],
+    "notes": "Structural regex only; does not validate checksum algorithm."
+  },
+  "021": {
+    "institution": "신한은행",
+    "patterns": [
+      "^\\d{3}[-\\s]?\\d{3}[-\\s]?\\d{7}[-\\s]?\\d$"
+    ],
+    "notes": "Structural regex only; does not validate checksum algorithm."
+  },
+  "022": {
+    "institution": "우리은행",
+    "patterns": [],
+    "notes": "Structural regex only; does not validate checksum algorithm."
+  },
+  "023": {
+    "institution": "SC제일은행",
+    "patterns": [
+      "^\\d{3}[-\\s]?\\d{2}[-\\s]?\\d{9}$",
+      "^\\d{9}$"
+    ],
+    "notes": "Structural regex only; does not validate checksum algorithm."
+  },
+  "024": {
+    "institution": "우리은행",
+    "patterns": [],
+    "notes": "Structural regex only; does not validate checksum algorithm."
+  },
+  "025": {
+    "institution": "하나은행(구.외환,하나)",
+    "patterns": [
+      "^\\d{3}[-\\s]?\\d{2}[-\\s]?\\d{5}[-\\s]?\\d$",
+      "^\\d{3}[-\\s]?\\d{6}[-\\s]?\\d{3}$",
+      "^\\d{3}[-\\s]?\\d{8}[-\\s]?\\d$",
+      "^\\d{8}$"
+    ],
+    "notes": "Structural regex only; does not validate checksum algorithm."
+  },
+  "026": {
+    "institution": "신한은행",
+    "patterns": [
+      "^\\d{3}[-\\s]?\\d{3}[-\\s]?\\d{7}[-\\s]?\\d$"
+    ],
+    "notes": "Structural regex only; does not validate checksum algorithm."
+  },
+  "027": {
+    "institution": "한국씨티은행",
+    "patterns": [
+      "^\\d{3}[-\\s]?\\d{5}[-\\s]?\\d{2}[-\\s]?\\d$",
+      "^\\d{6}[-\\s]?\\d[-\\s]?\\d{2}[-\\s]?\\d{2}$",
+      "^\\d{6}[-\\s]?\\d{2}[-\\s]?\\d$"
+    ],
+    "notes": "Structural regex only; does not validate checksum algorithm."
+  },
+  "028": {
+    "institution": "신한은행",
+    "patterns": [
+      "^\\d{3}[-\\s]?\\d{3}[-\\s]?\\d{7}[-\\s]?\\d$"
+    ],
+    "notes": "Structural regex only; does not validate checksum algorithm."
+  },
+  "029": {
+    "institution": "국민은행",
+    "patterns": [
+      "^\\d{3}[-\\s]?\\d{2}[-\\s]?\\d{4}[-\\s]?\\d{2}[-\\s]?\\d$",
+      "^\\d{4}[-\\s]?\\d{2}[-\\s]?\\d{5}[-\\s]?\\d$",
+      "^\\d{4}[-\\s]?\\d{2}[-\\s]?\\d{7}[-\\s]?\\d$"
+    ],
+    "notes": "Structural regex only; does not validate checksum algorithm."
+  },
+  "031": {
+    "institution": "아이엠뱅크",
+    "patterns": [
+      "^\\d{11}$",
+      "^\\d{2}[-\\s]?\\d{11}$",
+      "^\\d{3}[-\\s]?\\d{2}[-\\s]?\\d{6}[-\\s]?\\d$"
+    ],
+    "notes": "Structural regex only; does not validate checksum algorithm."
+  },
+  "032": {
+    "institution": "부산은행",
+    "patterns": [
+      "^\\d{3}[-\\s]?\\d{4}[-\\s]?\\d{4}[-\\s]?\\d{2}$"
+    ],
+    "notes": "Structural regex only; does not validate checksum algorithm."
+  },
+  "033": {
+    "institution": "하나은행(구.외환,하나)",
+    "patterns": [
+      "^\\d{3}[-\\s]?\\d{2}[-\\s]?\\d{5}[-\\s]?\\d$",
+      "^\\d{3}[-\\s]?\\d{6}[-\\s]?\\d{3}$",
+      "^\\d{3}[-\\s]?\\d{8}[-\\s]?\\d$",
+      "^\\d{8}$"
+    ],
+    "notes": "Structural regex only; does not validate checksum algorithm."
+  },
+  "034": {
+    "institution": "광주은행",
+    "patterns": [
+      "^\\d{2}[-\\s]?\\d{2}[-\\s]?\\d{6}$",
+      "^\\d{3}[-\\s]?\\d{9}$",
+      "^\\d{9}$"
+    ],
+    "notes": "Structural regex only; does not validate checksum algorithm."
+  },
+  "035": {
+    "institution": "제주은행",
+    "patterns": [
+      "^\\d{3}[-\\s]?\\d{2}[-\\s]?\\d{7}$",
+      "^\\d{3}[-\\s]?\\d{9}$",
+      "^\\d{9}$"
+    ],
+    "notes": "Structural regex only; does not validate checksum algorithm."
+  },
+  "036": {
+    "institution": "한국씨티은행",
+    "patterns": [
+      "^\\d{3}[-\\s]?\\d{5}[-\\s]?\\d{2}[-\\s]?\\d$",
+      "^\\d{6}[-\\s]?\\d[-\\s]?\\d{2}[-\\s]?\\d{2}$",
+      "^\\d{6}[-\\s]?\\d{2}[-\\s]?\\d$"
+    ],
+    "notes": "Structural regex only; does not validate checksum algorithm."
+  },
+  "037": {
+    "institution": "전북은행",
+    "patterns": [
+      "^\\d{3}[-\\s]?\\d{2}[-\\s]?\\d{7}$"
+    ],
+    "notes": "Structural regex only; does not validate checksum algorithm."
+  },
+  "039": {
+    "institution": "경남은행",
+    "patterns": [
+      "^\\d{3}[-\\s]?\\d{9}[-\\s]?\\d$",
+      "^\\d{9}$"
+    ],
+    "notes": "Structural regex only; does not validate checksum algorithm."
+  },
+  "043": {
+    "institution": "기업은행",
+    "patterns": [
+      "^\\d{11}$",
+      "^\\d{3}[-\\s]?\\d{2}[-\\s]?\\d{6}[-\\s]?\\d$",
+      "^\\d{3}[-\\s]?\\d{3}[-\\s]?\\d{4}$",
+      "^\\d{3}[-\\s]?\\d{4}$",
+      "^\\d{3}[-\\s]?\\d{6}[-\\s]?\\d{2}[-\\s]?\\d{2}[-\\s]?\\d$"
+    ],
+    "notes": "Structural regex only; does not validate checksum algorithm."
+  },
+  "045": {
+    "institution": "새마을금고중앙회",
+    "patterns": [
+      "^\\d{3}[-\\s]?\\d{3}[-\\s]?\\d{4}$",
+      "^\\d{3}[-\\s]?\\d{4}[-\\s]?\\d{4}$",
+      "^\\d{4}[-\\s]?\\d{8}[-\\s]?\\d$",
+      "^\\d{5}[-\\s]?\\d{2}[-\\s]?\\d{5}[-\\s]?\\d$",
+      "^\\d{5}[-\\s]?\\d{2}[-\\s]?\\d{6}[-\\s]?\\d$",
+      "^\\d{8}$"
+    ],
+    "notes": "Structural regex only; does not validate checksum algorithm."
+  },
+  "046": {
+    "institution": "새마을금고중앙회",
+    "patterns": [
+      "^\\d{3}[-\\s]?\\d{3}[-\\s]?\\d{4}$",
+      "^\\d{3}[-\\s]?\\d{4}[-\\s]?\\d{4}$",
+      "^\\d{4}[-\\s]?\\d{8}[-\\s]?\\d$",
+      "^\\d{5}[-\\s]?\\d{2}[-\\s]?\\d{5}[-\\s]?\\d$",
+      "^\\d{5}[-\\s]?\\d{2}[-\\s]?\\d{6}[-\\s]?\\d$",
+      "^\\d{8}$"
+    ],
+    "notes": "Structural regex only; does not validate checksum algorithm."
+  },
+  "047": {
+    "institution": "신협중앙회",
+    "patterns": [
+      "^\\d{3}[-\\s]?\\d{3}[-\\s]?\\d{5}[-\\s]?\\d$"
+    ],
+    "notes": "Structural regex only; does not validate checksum algorithm."
+  },
+  "048": {
+    "institution": "신협중앙회",
+    "patterns": [
+      "^\\d{3}[-\\s]?\\d{3}[-\\s]?\\d{5}[-\\s]?\\d$"
+    ],
+    "notes": "Structural regex only; does not validate checksum algorithm."
+  },
+  "049": {
+    "institution": "신협중앙회",
+    "patterns": [
+      "^\\d{3}[-\\s]?\\d{3}[-\\s]?\\d{5}[-\\s]?\\d$"
+    ],
+    "notes": "Structural regex only; does not validate checksum algorithm."
+  },
+  "050": {
+    "institution": "상호저축은행",
+    "patterns": [],
+    "notes": "Structural regex only; does not validate checksum algorithm."
+  },
+  "053": {
+    "institution": "한국씨티은행",
+    "patterns": [
+      "^\\d{3}[-\\s]?\\d{5}[-\\s]?\\d{2}[-\\s]?\\d$",
+      "^\\d{6}[-\\s]?\\d[-\\s]?\\d{2}[-\\s]?\\d{2}$",
+      "^\\d{6}[-\\s]?\\d{2}[-\\s]?\\d$"
+    ],
+    "notes": "Structural regex only; does not validate checksum algorithm."
+  },
+  "054": {
+    "institution": "HSBC은행",
+    "patterns": [
+      "^\\d{10}$"
+    ],
+    "notes": "Structural regex only; does not validate checksum algorithm."
+  },
+  "055": {
+    "institution": "도이치은행",
+    "patterns": [
+      "^\\d{10}$"
+    ],
+    "notes": "Structural regex only; does not validate checksum algorithm."
+  },
+  "057": {
+    "institution": "제이피모간체이스은행",
+    "patterns": [
+      "^\\d{4}[-\\s]?\\d{5}[-\\s]?\\d{2}[-\\s]?\\d$"
+    ],
+    "notes": "Structural regex only; does not validate checksum algorithm."
+  },
+  "060": {
+    "institution": "BOA은행",
+    "patterns": [
+      "^\\d{10}$",
+      "^\\d{4}[-\\s]?\\d{10}$",
+      "^\\d{5}[-\\s]?\\d{6}[-\\s]?\\d{3}$"
+    ],
+    "notes": "Structural regex only; does not validate checksum algorithm."
+  },
+  "061": {
+    "institution": "비엔피파리바은행",
+    "patterns": [],
+    "notes": "Structural regex only; does not validate checksum algorithm."
+  },
+  "064": {
+    "institution": "산림조합중앙회",
+    "patterns": [
+      "^\\d{11}$",
+      "^\\d{11}[-\\s]?\\d$",
+      "^\\d{3}[-\\s]?\\d{2}[-\\s]?\\d{7}$",
+      "^\\d{3}[-\\s]?\\d{8}[-\\s]?\\d$",
+      "^\\d{8}$"
+    ],
+    "notes": "Structural regex only; does not validate checksum algorithm."
+  },
+  "071": {
+    "institution": "지식경제부 우체국",
+    "patterns": [
+      "^\\d{3}[-\\s]?\\d{9}[-\\s]?\\d{2}$",
+      "^\\d{6}[-\\s]?\\d{2}[-\\s]?\\d{6}$",
+      "^\\d{6}[-\\s]?\\d{6}[-\\s]?\\d$",
+      "^\\d{9}$"
+    ],
+    "notes": "Structural regex only; does not validate checksum algorithm."
+  },
+  "072": {
+    "institution": "지식경제부 우체국",
+    "patterns": [
+      "^\\d{3}[-\\s]?\\d{9}[-\\s]?\\d{2}$",
+      "^\\d{6}[-\\s]?\\d{2}[-\\s]?\\d{6}$",
+      "^\\d{6}[-\\s]?\\d{6}[-\\s]?\\d$",
+      "^\\d{9}$"
+    ],
+    "notes": "Structural regex only; does not validate checksum algorithm."
+  },
+  "073": {
+    "institution": "지식경제부 우체국",
+    "patterns": [
+      "^\\d{3}[-\\s]?\\d{9}[-\\s]?\\d{2}$",
+      "^\\d{6}[-\\s]?\\d{2}[-\\s]?\\d{6}$",
+      "^\\d{6}[-\\s]?\\d{6}[-\\s]?\\d$",
+      "^\\d{9}$"
+    ],
+    "notes": "Structural regex only; does not validate checksum algorithm."
+  },
+  "074": {
+    "institution": "지식경제부 우체국",
+    "patterns": [
+      "^\\d{3}[-\\s]?\\d{9}[-\\s]?\\d{2}$",
+      "^\\d{6}[-\\s]?\\d{2}[-\\s]?\\d{6}$",
+      "^\\d{6}[-\\s]?\\d{6}[-\\s]?\\d$",
+      "^\\d{9}$"
+    ],
+    "notes": "Structural regex only; does not validate checksum algorithm."
+  },
+  "075": {
+    "institution": "지식경제부 우체국",
+    "patterns": [
+      "^\\d{3}[-\\s]?\\d{9}[-\\s]?\\d{2}$",
+      "^\\d{6}[-\\s]?\\d{2}[-\\s]?\\d{6}$",
+      "^\\d{6}[-\\s]?\\d{6}[-\\s]?\\d$",
+      "^\\d{9}$"
+    ],
+    "notes": "Structural regex only; does not validate checksum algorithm."
+  },
+  "078": {
+    "institution": "국민은행",
+    "patterns": [
+      "^\\d{3}[-\\s]?\\d{2}[-\\s]?\\d{4}[-\\s]?\\d{2}[-\\s]?\\d$",
+      "^\\d{4}[-\\s]?\\d{2}[-\\s]?\\d{5}[-\\s]?\\d$",
+      "^\\d{4}[-\\s]?\\d{2}[-\\s]?\\d{7}[-\\s]?\\d$"
+    ],
+    "notes": "Structural regex only; does not validate checksum algorithm."
+  },
+  "079": {
+    "institution": "국민은행",
+    "patterns": [
+      "^\\d{3}[-\\s]?\\d{2}[-\\s]?\\d{4}[-\\s]?\\d{2}[-\\s]?\\d$",
+      "^\\d{4}[-\\s]?\\d{2}[-\\s]?\\d{5}[-\\s]?\\d$",
+      "^\\d{4}[-\\s]?\\d{2}[-\\s]?\\d{7}[-\\s]?\\d$"
+    ],
+    "notes": "Structural regex only; does not validate checksum algorithm."
+  },
+  "080": {
+    "institution": "하나은행(구.외환,하나)",
+    "patterns": [
+      "^\\d{3}[-\\s]?\\d{2}[-\\s]?\\d{5}[-\\s]?\\d$",
+      "^\\d{3}[-\\s]?\\d{6}[-\\s]?\\d{3}$",
+      "^\\d{3}[-\\s]?\\d{8}[-\\s]?\\d$",
+      "^\\d{8}$"
+    ],
+    "notes": "Structural regex only; does not validate checksum algorithm."
+  },
+  "081": {
+    "institution": "하나은행(구.외환,하나)",
+    "patterns": [
+      "^\\d{3}[-\\s]?\\d{2}[-\\s]?\\d{5}[-\\s]?\\d$",
+      "^\\d{3}[-\\s]?\\d{6}[-\\s]?\\d{3}$",
+      "^\\d{3}[-\\s]?\\d{8}[-\\s]?\\d$",
+      "^\\d{8}$"
+    ],
+    "notes": "Structural regex only; does not validate checksum algorithm."
+  },
+  "082": {
+    "institution": "하나은행(구.외환,하나)",
+    "patterns": [
+      "^\\d{3}[-\\s]?\\d{2}[-\\s]?\\d{5}[-\\s]?\\d$",
+      "^\\d{3}[-\\s]?\\d{6}[-\\s]?\\d{3}$",
+      "^\\d{3}[-\\s]?\\d{8}[-\\s]?\\d$",
+      "^\\d{8}$"
+    ],
+    "notes": "Structural regex only; does not validate checksum algorithm."
+  },
+  "083": {
+    "institution": "우리은행",
+    "patterns": [],
+    "notes": "Structural regex only; does not validate checksum algorithm."
+  },
+  "084": {
+    "institution": "우리은행",
+    "patterns": [],
+    "notes": "Structural regex only; does not validate checksum algorithm."
+  },
+  "085": {
+    "institution": "새마을금고중앙회",
+    "patterns": [
+      "^\\d{3}[-\\s]?\\d{3}[-\\s]?\\d{4}$",
+      "^\\d{3}[-\\s]?\\d{4}[-\\s]?\\d{4}$",
+      "^\\d{4}[-\\s]?\\d{8}[-\\s]?\\d$",
+      "^\\d{5}[-\\s]?\\d{2}[-\\s]?\\d{5}[-\\s]?\\d$",
+      "^\\d{5}[-\\s]?\\d{2}[-\\s]?\\d{6}[-\\s]?\\d$",
+      "^\\d{8}$"
+    ],
+    "notes": "Structural regex only; does not validate checksum algorithm."
+  },
+  "086": {
+    "institution": "새마을금고중앙회",
+    "patterns": [
+      "^\\d{3}[-\\s]?\\d{3}[-\\s]?\\d{4}$",
+      "^\\d{3}[-\\s]?\\d{4}[-\\s]?\\d{4}$",
+      "^\\d{4}[-\\s]?\\d{8}[-\\s]?\\d$",
+      "^\\d{5}[-\\s]?\\d{2}[-\\s]?\\d{5}[-\\s]?\\d$",
+      "^\\d{5}[-\\s]?\\d{2}[-\\s]?\\d{6}[-\\s]?\\d$",
+      "^\\d{8}$"
+    ],
+    "notes": "Structural regex only; does not validate checksum algorithm."
+  },
+  "087": {
+    "institution": "새마을금고중앙회",
+    "patterns": [
+      "^\\d{3}[-\\s]?\\d{3}[-\\s]?\\d{4}$",
+      "^\\d{3}[-\\s]?\\d{4}[-\\s]?\\d{4}$",
+      "^\\d{4}[-\\s]?\\d{8}[-\\s]?\\d$",
+      "^\\d{5}[-\\s]?\\d{2}[-\\s]?\\d{5}[-\\s]?\\d$",
+      "^\\d{5}[-\\s]?\\d{2}[-\\s]?\\d{6}[-\\s]?\\d$",
+      "^\\d{8}$"
+    ],
+    "notes": "Structural regex only; does not validate checksum algorithm."
+  },
+  "088": {
+    "institution": "신한은행",
+    "patterns": [
+      "^\\d{3}[-\\s]?\\d{3}[-\\s]?\\d{7}[-\\s]?\\d$"
+    ],
+    "notes": "Structural regex only; does not validate checksum algorithm."
+  },
+  "089": {
+    "institution": "K뱅크",
+    "patterns": [
+      "^\\d{3}[-\\s]?\\d{4}[-\\s]?\\d{3}[-\\s]?\\d{4}$",
+      "^\\d{4}[-\\s]?\\d{2}[-\\s]?\\d{7}$"
+    ],
+    "notes": "Structural regex only; does not validate checksum algorithm."
+  },
+  "090": {
+    "institution": "카카오뱅크",
+    "patterns": [
+      "^\\d{3}[-\\s]?\\d{8}[-\\s]?\\d$",
+      "^\\d{8}$"
+    ],
+    "notes": "Structural regex only; does not validate checksum algorithm."
+  },
+  "092": {
+    "institution": "토스뱅크",
+    "patterns": [
+      "^\\d{10}$",
+      "^\\d{2}[-\\s]?\\d{10}$"
+    ],
+    "notes": "Structural regex only; does not validate checksum algorithm."
+  },
+  "099": {
+    "institution": "금융결제원",
+    "patterns": [],
+    "notes": "Structural regex only; does not validate checksum algorithm."
+  },
+  "209": {
+    "institution": "유안타증권",
+    "patterns": [
+      "^\\d{3}[-\\s]?\\d{2}[-\\s]?\\d{6}$",
+      "^\\d{3}[-\\s]?\\d{3}[-\\s]?\\d{3}[-\\s]?\\d{2}$",
+      "^\\d{4}[-\\s]?\\d{4}[-\\s]?\\d{4}$"
+    ],
+    "notes": "Structural regex only; does not validate checksum algorithm."
+  },
+  "218": {
+    "institution": "KB증권",
+    "patterns": [
+      "^\\d{3}[-\\s]?\\d{3}[-\\s]?\\d{3}$"
+    ],
+    "notes": "Structural regex only; does not validate checksum algorithm."
+  },
+  "226": {
+    "institution": "KB증권",
+    "patterns": [
+      "^\\d{3}[-\\s]?\\d{3}[-\\s]?\\d{3}$"
+    ],
+    "notes": "Structural regex only; does not validate checksum algorithm."
+  },
+  "230": {
+    "institution": "미래에셋증권",
+    "patterns": [],
+    "notes": "Structural regex only; does not validate checksum algorithm."
+  },
+  "238": {
+    "institution": "미래에셋증권",
+    "patterns": [],
+    "notes": "Structural regex only; does not validate checksum algorithm."
+  },
+  "240": {
+    "institution": "삼성증권",
+    "patterns": [
+      "^\\d{5}[-\\s]?\\d{8}$",
+      "^\\d{8}$"
+    ],
+    "notes": "Structural regex only; does not validate checksum algorithm."
+  },
+  "243": {
+    "institution": "한국투자증권",
+    "patterns": [
+      "^\\d{8}$",
+      "^\\d{8}[-\\s]?\\d{2}[-\\s]?\\d{4}$"
+    ],
+    "notes": "Structural regex only; does not validate checksum algorithm."
+  },
+  "247": {
+    "institution": "NH투자증권",
+    "patterns": [
+      "^\\d{11}$"
+    ],
+    "notes": "Structural regex only; does not validate checksum algorithm."
+  },
+  "261": {
+    "institution": "교보증권",
+    "patterns": [
+      "^\\d{4}[-\\s]?\\d{4}[-\\s]?\\d{2}$"
+    ],
+    "notes": "Structural regex only; does not validate checksum algorithm."
+  },
+  "262": {
+    "institution": "아이엠증권",
+    "patterns": [
+      "^\\d{8}$"
+    ],
+    "notes": "Structural regex only; does not validate checksum algorithm."
+  },
+  "263": {
+    "institution": "현대차증권",
+    "patterns": [
+      "^\\d{4}[-\\s]?\\d{4}[-\\s]?\\d{2}$"
+    ],
+    "notes": "Structural regex only; does not validate checksum algorithm."
+  },
+  "264": {
+    "institution": "키움증권",
+    "patterns": [
+      "^\\d{4}[-\\s]?\\d{4}$"
+    ],
+    "notes": "Structural regex only; does not validate checksum algorithm."
+  },
+  "265": {
+    "institution": "엘에스투자증권",
+    "patterns": [
+      "^\\d{11}$",
+      "^\\d{9}$"
+    ],
+    "notes": "Structural regex only; does not validate checksum algorithm."
+  },
+  "266": {
+    "institution": "SK증권",
+    "patterns": [
+      "^\\d{9}$"
+    ],
+    "notes": "Structural regex only; does not validate checksum algorithm."
+  },
+  "267": {
+    "institution": "대신증권",
+    "patterns": [
+      "^\\d{10}$",
+      "^\\d{3}[-\\s]?\\d{8}$",
+      "^\\d{8}$"
+    ],
+    "notes": "Structural regex only; does not validate checksum algorithm."
+  },
+  "268": {
+    "institution": "메리츠증권",
+    "patterns": [
+      "^\\d{11}$",
+      "^\\d{3}[-\\s]?\\d{2}[-\\s]?\\d{6}$"
+    ],
+    "notes": "Structural regex only; does not validate checksum algorithm."
+  },
+  "269": {
+    "institution": "한화투자증권",
+    "patterns": [
+      "^\\d{11}$",
+      "^\\d{13}$",
+      "^\\d{3}[-\\s]?\\d{11}$",
+      "^\\d{7}[-\\s]?\\d$",
+      "^\\d{7}[-\\s]?\\d[-\\s]?\\d{2}$"
+    ],
+    "notes": "Structural regex only; does not validate checksum algorithm."
+  },
+  "270": {
+    "institution": "하나증권",
+    "patterns": [
+      "^\\d{8}$",
+      "^\\d{8}[-\\s]?\\d{3}$",
+      "^\\d{8}[-\\s]?\\d{3}[-\\s]?\\d{3}$"
+    ],
+    "notes": "Structural regex only; does not validate checksum algorithm."
+  },
+  "278": {
+    "institution": "신한투자증권",
+    "patterns": [
+      "^\\d{3}[-\\s]?\\d{2}[-\\s]?\\d{4}$"
+    ],
+    "notes": "Structural regex only; does not validate checksum algorithm."
+  },
+  "279": {
+    "institution": "DB금융투자",
+    "patterns": [
+      "^\\d{11}$",
+      "^\\d{3}[-\\s]?\\d{2}[-\\s]?\\d{4}[-\\s]?\\d{2}$"
+    ],
+    "notes": "Structural regex only; does not validate checksum algorithm."
+  },
+  "280": {
+    "institution": "유진투자증권",
+    "patterns": [
+      "^\\d{4}[-\\s]?\\d{4}[-\\s]?\\d{2}$"
+    ],
+    "notes": "Structural regex only; does not validate checksum algorithm."
+  },
+  "287": {
+    "institution": "메리츠증권",
+    "patterns": [
+      "^\\d{11}$",
+      "^\\d{3}[-\\s]?\\d{2}[-\\s]?\\d{6}$"
+    ],
+    "notes": "Structural regex only; does not validate checksum algorithm."
+  },
+  "288": {
+    "institution": "카카오페이증권",
+    "patterns": [],
+    "notes": "Structural regex only; does not validate checksum algorithm."
+  },
+  "289": {
+    "institution": "NH투자증권",
+    "patterns": [
+      "^\\d{11}$"
+    ],
+    "notes": "Structural regex only; does not validate checksum algorithm."
+  },
+  "290": {
+    "institution": "부국증권",
+    "patterns": [
+      "^\\d{9}$"
+    ],
+    "notes": "Structural regex only; does not validate checksum algorithm."
+  },
+  "291": {
+    "institution": "신영증권",
+    "patterns": [
+      "^\\d{12}$",
+      "^\\d{3}[-\\s]?\\d{2}[-\\s]?\\d{6}$"
+    ],
+    "notes": "Structural regex only; does not validate checksum algorithm."
+  },
+  "292": {
+    "institution": "케이프투자증권",
+    "patterns": [
+      "^\\d{3}[-\\s]?\\d{2}[-\\s]?\\d{6}$",
+      "^\\d{3}[-\\s]?\\d{2}[-\\s]?\\d{6}[-\\s]?\\d{3}$"
+    ],
+    "notes": "Structural regex only; does not validate checksum algorithm."
+  },
+  "294": {
+    "institution": "우리투자증권",
+    "patterns": [],
+    "notes": "Structural regex only; does not validate checksum algorithm."
+  }
+}

@@ -1,0 +1,44 @@
+# DN detector configuration (driver-license-like numeric token).
+
+# Enable/disable this detector.
+enabled: true
+
+# Candidate regex list; each entry is used by Hyperscan and verifier regex.
+patterns:
+  - name: dn_hyphen
+    key: DN
+    expr: '[0-9]{2}-[0-9]{2}-[0-9]{6}-[0-9]{2}'
+    verify_regex: '(?<!\d)(?!00-00-000000-00)\d{2}-\d{2}-\d{6}-\d{2}(?!\d)'
+    # Bytes scanned around the initial hit for final verify regex.
+    window_bytes: 120
+    # Hyperscan compile flags.
+    flags:
+      utf8: true
+      ucp: false
+      som: true
+
+  - name: dn_space
+    key: DN
+    expr: '[0-9]{2}[ ]+[0-9]{2}[ ]+[0-9]{6}[ ]+[0-9]{2}'
+    verify_regex: '(?<!\d)(?!00\s+00\s+000000\s+00)\d{2}\s+\d{2}\s+\d{6}\s+\d{2}(?!\d)'
+    window_bytes: 120
+    flags:
+      utf8: true
+      ucp: false
+      som: true
+
+  - name: dn_compact
+    key: DN
+    expr: '[0-9]{12}'
+    verify_regex: '(?<!\d)(?!0{12})\d{12}(?!\d)'
+    window_bytes: 120
+    flags:
+      utf8: true
+      ucp: false
+      som: true
+
+# Per-type output cap.
+max_results_per_type: 500
+
+# Maximum captured match length used by the cursor scanner.
+max_match_len: 32

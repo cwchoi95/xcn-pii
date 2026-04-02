@@ -1,0 +1,14 @@
+# EML detector configuration (email address).
+
+# Enable/disable this detector.
+enabled: true
+
+# Candidate regex list for email-like tokens.
+patterns:
+  - name: EML_basic
+    expr: '[A-Za-z0-9._%+\-]+@[A-Za-z0-9\-]+(?:\.[A-Za-z0-9\-]+)+'
+    verify_regex: '(?<![A-Za-z0-9._%+\-])[A-Za-z0-9](?:[A-Za-z0-9._%+\-]{0,62}[A-Za-z0-9])?@(?:[A-Za-z0-9](?:[A-Za-z0-9\-]{0,61}[A-Za-z0-9])?\.)+[A-Za-z]{2,24}(?![A-Za-z0-9._%+\-])'
+    regex: '(?<![A-Za-z0-9._%+\-])[A-Za-z0-9](?:[A-Za-z0-9._%+\-]{0,62}[A-Za-z0-9])?@(?:[A-Za-z0-9](?:[A-Za-z0-9\-]{0,61}[A-Za-z0-9])?\.)+[A-Za-z]{2,24}(?![A-Za-z0-9._%+\-])'
+
+# Maximum captured match length used by the cursor scanner.
+max_match_len: 400

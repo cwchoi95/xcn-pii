@@ -1,0 +1,73 @@
+﻿<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>PII 입력값 검출</title>
+  <link rel="stylesheet" href="/static/style.css" />
+</head>
+<body>
+  <div class="container">
+    <h1>PII 입력값 검출 (SN/SSN/DN/AN/PN/MN/EML)</h1>
+
+    <div class="tabs">
+      <button class="tab active" id="tab-detect" type="button">PII 검출</button>
+      <button class="tab" id="tab-rrn" type="button">주민등록번호 유효성 체크</button>
+      <span class="spacer"></span>
+      <a href="/pii/selftest" target="_blank" rel="noreferrer">selftest</a>
+    </div>
+
+    <section id="page-detect">
+      <div class="toolbar">
+        <label>max/type
+          <input id="maxSpans" type="number" value="200" min="1" max="5000"/>
+        </label>
+        <button id="btnDetect" type="button">검출</button>
+      </div>
+
+      <textarea id="text" placeholder="여기에 텍스트를 붙여넣으세요."></textarea>
+
+      <div id="timing" class="timing" style="display:none;"></div>
+
+      <div id="out"></div>
+    </section>
+
+    <section id="page-rrn" style="display:none;">
+      <div class="card">
+        <div class="toolbar" style="margin-bottom: 0;">
+          <label style="flex:1; min-width: 260px;">
+            주민등록번호
+            <input id="rrnInput" class="textInput" type="text"
+                   placeholder="예: 900101-1234567 또는 9001011234567" />
+          </label>
+          <button id="btnRrnCheck" type="button">유효성 체크</button>
+          <button id="btnRrnClear" type="button" class="btnLight">초기화</button>
+        </div>
+
+        <div class="hint">
+          - 체크섬(13번째 자리) 기반으로 <b>유효 여부</b>를 판단합니다.<br/>
+          - 테스트/더미 번호는 대부분 <b>invalid</b>가 나올 수 있습니다.
+        </div>
+
+        <div id="rrnResult" class="result" style="display:none;"></div>
+
+        <hr class="hr"/>
+
+        <h2 class="subTitle">텍스트에서 SN 추출 후 일괄 검증</h2>
+        <div class="hint">아래 텍스트에서 <b>YYMMDD-XXXXXXX</b> 형태를 찾아 체크섬을 계산합니다.</div>
+
+        <textarea id="rrnText" class="miniText"
+                  placeholder="예: 주민등록번호: 900101-1234567 / 801231-2345678 ..."></textarea>
+
+        <div class="toolbar" style="margin-top: 10px;">
+          <button id="btnRrnExtract" type="button">SN 추출 + 검증</button>
+        </div>
+
+        <div id="rrnBatchResult" class="result" style="display:none;"></div>
+      </div>
+    </section>
+  </div>
+
+  <script src="/static/app.js?v=20260303-4"></script>
+</body>
+</html>

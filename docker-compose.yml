@@ -1,0 +1,130 @@
+name: xcn
+
+services:
+  api:
+    profiles: ["http"]
+    build:
+      context: ./backend
+      dockerfile: Dockerfile.http
+      args:
+        INSTALL_SEMANTIC: ${HTTP_INSTALL_SEMANTIC:-true}
+    container_name: pii-detect-api
+    command: ["sh", "-c", "uvicorn app.main:app --host 0.0.0.0 --port 8000 --workers ${UVICORN_WORKERS:-1}"]
+    ports:
+      - "8005:8000"
+    environment:
+      - PII_MIN_SCORE=0.6
+      - PII_MAX_SPANS=200
+      - UVICORN_WORKERS=1
+      - PII_SPLIT_ENABLED=true
+      - PII_SPLIT_TEXT_LEN=50000
+      - PII_SPLIT_CHUNK_CHARS=50000
+      - PII_SPLIT_OVERLAP_CHARS=2000
+      - PII_SPLIT_MAX_WORKERS=1
+      - PII_SPLIT_MAX_RESULTS_PER_TYPE=200
+      - PII_SPLIT_MAX_CHUNKS=64
+      - PII_FASTPATH_ENABLED=true
+      - PII_FASTPATH_TEXT_LEN=50000
+      - PII_FASTPATH_MAX_RESULTS_PER_TYPE=200
+      - PII_FASTPATH_TARGET_KEYS=SN,SN_INVALID,SSN,DN,PN,MN,AN,EML
+      - PII_HS_SN_ENABLED=true
+      - PII_HS_DN_ENABLED=true
+      - PII_HS_AN_ENABLED=true
+      - PII_HS_SSN_ENABLED=true
+      - PII_HS_PN_ENABLED=true
+      - PII_HS_MN_ENABLED=true
+      - PII_HS_EML_ENABLED=true
+      - PII_HS_COMBINED_ENABLED=${PII_HS_COMBINED_ENABLED:-true}
+      - PII_CONTEXT_EMBED_MAX_CHARS=${PII_CONTEXT_EMBED_MAX_CHARS:-256}
+      - PII_TRACE_DETECT=false
+      - PII_TRACE_SLOW_MS=800
+      - PII_STAGE_TIMING_ENABLED=true
+      - PII_STAGE_LOG_ENABLED=false
+      - PII_STAGE_LOG_ITEMS=false
+      - PII_STAGE_LOG_ITEM_LIMIT=100
+      - PII_STAGE_LOG_TEXT_LIMIT=240
+      - PII_FILE_LOG_ENABLED=true
+      - PII_LOG_DIR=/logs
+      - PII_LOG_LEVEL=INFO
+      - PII_LOG_BACKUP_DAYS=30
+      - HF_HOME=/data/hf
+      - TRANSFORMERS_CACHE=/data/hf/transformers
+      - SENTENCE_TRANSFORMERS_HOME=/data/hf/sentence_transformers
+    volumes:
+      - hf_cache:/data/hf
+      - ./logs:/logs
+    restart: unless-stopped
+  api-grpc:
+    profiles: ["grpc"]
+    image: ${GRPC_IMAGE:-xcn-api-grpc}
+    build:
+      context: ./backend
+      dockerfile: Dockerfile.grpc
+      args:
+        INSTALL_SEMANTIC: ${GRPC_INSTALL_SEMANTIC:-true}
+    command: ["python", "-m", "app.grpc_server"]
+    expose:
+      - "50051"
+    environment:
+      - PII_MIN_SCORE=0.6
+      - PII_MAX_SPANS=200
+      - PII_GRPC_HOST=0.0.0.0
+      - PII_GRPC_PORT=50051
+      - PII_GRPC_MAX_WORKERS=${PII_GRPC_MAX_WORKERS:-6}
+      - PII_GRPC_MAX_CONCURRENT_STREAMS=${PII_GRPC_MAX_CONCURRENT_STREAMS:-1024}
+      - PII_GRPC_KEEPALIVE_TIME_MS=${PII_GRPC_KEEPALIVE_TIME_MS:-30000}
+      - PII_GRPC_KEEPALIVE_TIMEOUT_MS=${PII_GRPC_KEEPALIVE_TIMEOUT_MS:-10000}
+      - PII_GRPC_MAX_CONCURRENT_RPCS=${PII_GRPC_MAX_CONCURRENT_RPCS:-0}
+      - PII_GRPC_SO_REUSEPORT=${PII_GRPC_SO_REUSEPORT:-true}
+      - PII_SPLIT_ENABLED=true
+      - PII_SPLIT_TEXT_LEN=50000
+      - PII_SPLIT_CHUNK_CHARS=50000
+      - PII_SPLIT_OVERLAP_CHARS=2000
+      - PII_SPLIT_MAX_WORKERS=1
+      - PII_SPLIT_MAX_RESULTS_PER_TYPE=200
+      - PII_SPLIT_MAX_CHUNKS=64
+      - PII_FASTPATH_ENABLED=true
+      - PII_FASTPATH_TEXT_LEN=50000
+      - PII_FASTPATH_MAX_RESULTS_PER_TYPE=200
+      - PII_FASTPATH_TARGET_KEYS=SN,SN_INVALID,SSN,DN,PN,MN,AN,EML,IP
+      - PII_HS_SN_ENABLED=true
+      - PII_HS_DN_ENABLED=true
+      - PII_HS_AN_ENABLED=true
+      - PII_HS_SSN_ENABLED=true
+      - PII_HS_PN_ENABLED=true
+      - PII_HS_MN_ENABLED=true
+      - PII_HS_EML_ENABLED=true
+      - PII_HS_IP_ENABLED=true
+      - PII_HS_COMBINED_ENABLED=${PII_HS_COMBINED_ENABLED:-true}
+      - PII_CONTEXT_EMBED_MAX_CHARS=${PII_CONTEXT_EMBED_MAX_CHARS:-256}
+      - PII_TRACE_DETECT=false
+      - PII_TRACE_SLOW_MS=800
+      - PII_STAGE_TIMING_ENABLED=true
+      - PII_STAGE_LOG_ENABLED=false
+      - PII_STAGE_LOG_ITEMS=false
+      - PII_STAGE_LOG_ITEM_LIMIT=100
+      - PII_STAGE_LOG_TEXT_LIMIT=240
+      - PII_FILE_LOG_ENABLED=true
+      - PII_LOG_DIR=/logs
+      - PII_LOG_LEVEL=INFO
+      - PII_LOG_BACKUP_DAYS=30
+      - HF_HOME=/data/hf
+      - TRANSFORMERS_CACHE=/data/hf/transformers
+      - SENTENCE_TRANSFORMERS_HOME=/data/hf/sentence_transformers
+    volumes:
+      - hf_cache:/data/hf
+      - ./logs:/logs
+    restart: unless-stopped
+  api-grpc-lb:
+    profiles: ["grpc"]
+    image: haproxy:3.1-alpine
+    container_name: pii-detect-grpc-lb
+    depends_on:
+      - api-grpc
+    ports:
+      - "50055:50051"
+    volumes:
+      - ./infra/haproxy/grpc-lb.cfg:/usr/local/etc/haproxy/haproxy.cfg:ro
+    restart: unless-stopped
+volumes:
+  hf_cache:

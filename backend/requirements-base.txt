@@ -1,0 +1,3 @@
+pydantic==2.8.2
+hyperscan==0.7.9
+pyyaml==6.0.2
